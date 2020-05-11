@@ -1,0 +1,24 @@
+<div class="player-div">
+    <h1 *ngIf="!winner">
+        C'est au tour de {{ player }} de jouer.
+    </h1>
+    
+    <h1 *ngIf="winner">
+        Le joueur {{winner}} a gagné la partie !
+    </h1>    
+</div>
+
+<button style="margin: 15px 0px;" nbButton outline (click)="newGame()">
+    Démarrer une nouvelle partie
+</button>
+
+<div>
+    <main>
+        <app-square *ngFor="let val of squares; let i = index"
+                    [value]="val"
+                    [gameOver]="gameOver"
+                    (click)="makeMove(i)"
+        >
+        </app-square>
+    </main>
+</div>
